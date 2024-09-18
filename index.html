@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+		rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="./assets/style.css">
+	<script type="module" src="./Controller/index.js" defer></script>
+	<script type="module" src="./Controller/modal.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li>projets</li>
+				<li>contact</li>
+				<li><a href="./login.html" id="loginId">login</a></li>
+				<li><a href="./login.html" id="logoutId" class="hidden">logout</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="introduction">
+			<figure>
+				<img src="./assets/images/sophie-bluel.png" alt="">
+			</figure>
+			<article>
+				<h2>Designer d'espace</h2>
+				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
+					finale du chantier.</p>
+				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
+					couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+					chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
+					décorateur(trice)</p>
+			</article>
+		</section>
+
+		<div class="overlay hidden">
+			<div class="modal">
+				<section class="gallery-photo">
+					<header class="modalHeader">
+						<h3>Galerie photo</h3>
+						<button id="close" class="close">
+							<i class="fa-solid fa-xmark"></i>
+						</button>
+					</header>
+					<div class="edit-gallery"></div>
+					<hr>
+					<footer>
+						<button id="add" class="ajouter-une-photo">Ajouter une photo</button>
+					</footer>
+				</section>
+				<section class="ajouter-photo hidden">
+					<header>
+						<button id="back" class="back">
+							<i class="fa-solid fa-arrow-left"></i>
+						</button>
+						<h3>Ajout photo</h3>
+						<button id="close-2" class="close">
+							<i class="fa-solid fa-xmark"></i>
+						</button>
+					</header>
+
+					<div class="plus">
+						<i class="fa-regular fa-image imgIcon"></i>
+						<label id="fileName" for="inputFile">+ Ajouter photo</label>
+						<input accept="image/*" type="file" name="Ajouter photo" id="inputFile">
+						<h4 id="max">jpg, png : 4mo max</h4>
+						<div id="preview" class="preview"></div> <!-- Add this div for image preview -->
+					</div>
+
+					<form class="input" action="">
+						<label for="titre">Titre:</label><br>
+						<input type="text" id="titre" name="titre"><br><br>
+
+						<label for="categorie">Catégorie:</label><br>
+						<select name="categorie" id="categorie">
+							<option class="hidden" value="0"></option>
+							<option value="1">Objets</option>
+							<option value="2">Appartements</option>
+							<option value="3">Hotels & restaurants</option>
+						</select>
+					</form>
+					<hr>
+					<button id="add-photo" class="valider btn-disabled">Valider</button>
+				</section>
+			</div>
+		</div>
+
+		<section id="portfolio">
+			<header>
+				<h2>Mes Projets</h2>
+				<button id="edit">
+					<i class="fa-regular fa-pen-to-square"></i>
+					modifier
+				</button>
+			</header>
+			<div class="filter">
+				<!-- <button class="active" data-name="Tous">Tous</button>
+				<button data-name="Objet">Objet</button>
+				<button data-name="Appartement">Appartement</button>
+				<button data-name="Hotels & restaurants">Hotels & restaurants</button> -->
+			</div>
+
+			<div class="gallery">
+
+				<!-- <figure>
+					<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+					<figcaption>Abajour Tahina</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
+					<figcaption>Appartement Paris V</figcaption>
+				</figure>
+
+				<figure data-name="Hotels & restaurants">
+					<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
+					<figcaption>Restaurant Sushisen - Londres</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
+					<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
+				</figure>
+				
+				<figure data-name="Objet">
+					<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
+					<figcaption>Structures Thermopolis</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
+					<figcaption>Appartement Paris X</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
+					<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
+					<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
+					<figcaption>Appartement Paris XVIII</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
+					<figcaption>Bar “Lullaby” - Paris</figcaption>
+				</figure>
+
+				<figure>
+					<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
+					<figcaption>Hotel First Arte - New Delhi</figcaption>
+				</figure> -->
+			</div>
+		</section>
+		<section id="contact">
+			<h2>Contact</h2>
+			<p>Vous avez un projet ? Discutons-en !</p>
+			<form action="#" method="post">
+				<label for="name">Nom</label>
+				<input type="text" name="name" id="name">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+				<label for="message">Message</label>
+				<textarea name="message" id="message" cols="30" rows="10"></textarea>
+				<input type="submit" value="Envoyer">
+			</form>
+		</section>
+	</main>
+
+	<footer>
+		<nav>
+			<ul>
+				<li>Mentions Légales</li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+
+</html>
